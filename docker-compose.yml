@@ -1,0 +1,15 @@
+version: "3.5"
+
+services:
+  dynamicdns:
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    restart: always
+    environment:
+      - AWS_ACCESS_KEY_ID=${AWS_ACCESS_KEY_ID}
+      - AWS_SECRET_ACCESS_KEY=${AWS_SECRET_ACCESS_KEY}
+      - AWS_DEFAULT_REGION=${AWS_DEFAULT_REGION}
+      - HOSTED_ZONE_NAME=${HOSTED_ZONE_NAME}
+      - RESOURCE_RECORD_NAME=${RESOURCE_RECORD_NAME}
+      - HEALTH_CHECK_URL=${HEALTH_CHECK_URL}
